@@ -20,7 +20,7 @@ Allow Inbound traffic to access the following ports TCP 22, UDP 2049, TCP 2049, 
 - TCP 7077 for Spark Master to communicate with workers and applications using RPC (Remote Procedure Call) communication.
 - TPC 8080 to access Spark Master web interface
 - ICMP to make sure that all EC2s can communicate with each other.
-# Network File System (NFS) File System Share
+# Network File System (NFS) Share
 Create an NFS share on the SparkPredictorApp EC2 and share it with all other EC2s (SPARK-Master, SPARK-Worker-1, SPARK-Worker-2, SPARK-Worker-3) to read the datasets and write the model to.
 All machines are mounted to “/mnt/nfs_project” to read the TrainingDataset.csv & ValidationDataset.csv and for the Spark-Master to write the model.
 - Install NFS Kernel Server Steps
