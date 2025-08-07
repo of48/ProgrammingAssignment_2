@@ -1,6 +1,5 @@
 Programming Assignment 2
 Wine Quality Prediction ML model in Spark over AWS
-
 # Assignment Goals
 - Develop parallel machine learning (ML) applications in Amazon AWS cloud platform
 - how to use Apache Spark to train an ML model in parallel on multiple EC2 instances
@@ -14,7 +13,6 @@ Input for model training: we share 2 datasets with you for your ML model. Each r
 # EC Instances
 Create 5 EC2s, 4 Spark EC2s and one for the Docker & Network File System (NFS) share.
 Select the following image “Ubuntu Server 24.04 LTS (HVM)”, create t3.large for each Spark machine and one t3.medium for SparkPredictiorApp to run the docker one and the NFS share.
-
 # EC2 Security Group
 Allow Inbound traffic to access the following ports TCP 22, UDP 2049, TCP 2049, TCP 7077, TCP 8080 and ICMP.
 - SSH Port 22 for Remote Access
@@ -22,7 +20,6 @@ Allow Inbound traffic to access the following ports TCP 22, UDP 2049, TCP 2049, 
 - TCP 7077 for Spark Master to communicate with workers and applications using RPC (Remote Procedure Call) communication.
 - TPC 8080 to access Spark Master web interface
 - ICMP to make sure that all EC2s can communicate with each other.
-
 # Network File System (NFS) File System Share
 Create an NFS share on the SparkPredictorApp EC2 and share it with all other EC2s (SPARK-Master, SPARK-Worker-1, SPARK-Worker-2, SPARK-Worker-3) to read the datasets and write the model to.
 All machines are mounted to “/mnt/nfs_project” to read the TrainingDataset.csv & ValidationDataset.csv and for the Spark-Master to write the model.
@@ -45,8 +42,6 @@ All machines are mounted to “/mnt/nfs_project” to read the TrainingDataset.c
 - Allow Clients Through AWS Security Groups Ports 2049 TCP & UDP
 - Set up a Mount Point on the Client EC2s
 - sudo mount 172.31.82.197:/mnt/nfs_project /mnt/nfs_project
-# Network Diagram
-
 # EC2 Environment Setup
 Setting up the applications on all machines
 ## Application Versions
@@ -103,12 +98,10 @@ python3 -m pip install pyspark
 - Logistic_Regression_Model F1 Score: 0.5672726692311375
 - Random_Forest_Classifier_Model F1 Score: 0.5113001410286163
 - Model output is saved in the /mnt/nfs/model
-
 ### Apache Spark Application Web Interface
 Logging to the Spark Master Web Interface
 - Summary of the Cluster status, total number of available cores and memory and the number of active workers http://spark-master-ip:8080/
 - Running jobs http://spark-master-ip:4040/jobs/
-
 ### Docker
 mkdir wine-predictor
 docker login -u
